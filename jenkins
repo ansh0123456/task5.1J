@@ -37,6 +37,14 @@ pipeline {
         stage('Approval') {
             steps {
                 echo "Waiting for manual approval..."
-                sleep 10
+                sleep(time: 10)
             }
         }
+        
+        stage('Deploy to Production') {
+            steps {
+                echo "Deploying the application to production environment: ${env.PRODUCTION_ENVIRONMENT}"
+            }
+        }
+    }
+}
